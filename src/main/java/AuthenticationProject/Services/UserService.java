@@ -6,6 +6,12 @@ public class UserService {
 
     private static UserService userService;
     private static AuthenticationService authService;
+    private static UserRepository userRepository;
+
+    private UserService(
+    ) {
+        userRepository = UserRepository.getInstance();
+    }
 
     public static synchronized UserService getInstance()
     {
