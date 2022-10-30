@@ -1,4 +1,78 @@
 package AuthenticationProject.Controllers;
 
+import AuthenticationProject.Services.*;
+import AuthenticationProject.UserRepository.*;
+import java.util.regex.*;
+
 public class UserController {
+    private static UserController userController;
+    private static UserService userService;
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
+    private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
+
+    private UserController(
+    ) {
+        UserService.getInstance();
+    }
+
+    public static synchronized UserController getInstance() {
+        if (userController == null) {
+            userController = new UserController();
+        }
+        return userController;
+    }
+
+    public void updateUserName(int id, String token, String userName) {
+        if (authenticateUser(id, token)) {
+            userService.updateUserName(userName);
+        }
+        throw new IllegalStateException("The user was not authenticated");
+    }
+
+    public void updateEmail(int id, String token, String email) {
+        if (authenticateUser(id, token)) {
+            if (validateEmail(email)) {
+                userService.updateEmail(email);
+            } else {
+                throw new IllegalArgumentException("Invalid email inserted");
+            }
+        }
+        throw new IllegalStateException("The user was not authenticated");
+    }
+
+    public void updatePassword(int id, String token, String password) {
+        if (authenticateUser(id, token)) {
+            if (validatePassword(String password)) {
+                userService.updatePassword(password);
+            } else {
+                throw new IllegalArgumentException("Invalid email inserted");
+            }
+        }
+        throw new IllegalStateException("The user was not authenticated");
+    }
+
+    public static boolean authenticateUser(int id, String token) {
+        return AuthenticationService.authenticate(id, token);
+    }
+
+    public static boolean validateEmail(String email) {
+        Matcher m = emailPattern.matcher(email);
+        boolean matchFound = m.matches();
+        if (matchFound) {
+            if (UserRepository.checkIfEmailExists(email)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean validatePassword(String password) {
+        Matcher m = PASSWORD_PATTERN.matcher(password);
+        boolean matchFound = m.matches();
+        if (matchFound) {
+            return true;
+        }
+        return false;
+    }
 }
