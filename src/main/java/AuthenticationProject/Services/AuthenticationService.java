@@ -1,4 +1,4 @@
-package Services;
+package AuthenticationProject.Services;
 
 public class AuthenticationService {
 }

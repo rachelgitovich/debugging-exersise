@@ -1,4 +1,4 @@
-package Controllers;
+package AuthenticationProject.Controllers;
 
 public class AuthenticationController {
 }
