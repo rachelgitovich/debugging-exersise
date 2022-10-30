@@ -7,10 +7,6 @@ public class UserService {
     private static UserService userService;
     private static AuthenticationService authService;
 
-
-    private UserService(
-    ) {}
-
     public static synchronized UserService getInstance()
     {
         if (userService==null){
@@ -19,18 +15,18 @@ public class UserService {
         return userService;
     }
 
-    public void updateEmail(int id, String email) {
-        UserRepository.updateEmail(int id, String email);
+    public void updateEmail(String id, String email) {
+        UserRepository.updateEmail(id,email);
     }
 
-    public void updatePassword(int id, String password) {
-        UserRepository.updatePassword(int id, String password);
+    public void updatePassword(String id, String password) {
+        UserRepository.updatePassword(id,password);
     }
 
-    public void updateUserName(int id, String username) {
-        UserRepository.updateUserName(int id, String username);
+    public void updateUserName(String id, String username) {
+        UserRepository.updateName(id, username);
     }
-    public void deleteUser(int id ){
-        UserRepository.deleteUser(int id);
+    public void deleteUser(String id ){
+        UserRepository.deleteUser(id);
     }
 }

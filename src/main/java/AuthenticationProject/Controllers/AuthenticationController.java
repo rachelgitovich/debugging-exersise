@@ -20,12 +20,12 @@ public class AuthenticationController {
     }
 
 
-    public static HashMap<Integer, String> logIn(String email, String password) {
+    public static HashMap<String, String> logIn(String email, String password) {
 
         return AuthenticationService.logIn(email, password);
     }
 
-    public static boolean authUser(int id, String token) {
+    public static boolean authUser(String id, String token) {
         return AuthenticationService.authUser(id, token);
     }
 
