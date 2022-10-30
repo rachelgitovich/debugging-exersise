@@ -8,8 +8,8 @@ import com.google.gson.stream.JsonReader;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class UserRepository {
     private static String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
@@ -55,5 +55,29 @@ public class UserRepository {
     public static boolean checkIfUserExists(String email, String password) {
         List<User> data = fetchUsers();
         return data.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+    }
+
+    public static void updateEmail(String id, String email) {
+        List<User> data = fetchUsers();
+        User user = null;
+        try {
+            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("User not found");
+        }
+        data.remove(user);
+        user.setEmail(email);
+        data.add(user);
+        PrintWriter writer = null;
+        String usersJson = gson.toJson(data);
+        try {
+            writer = new PrintWriter(path, "UTF-8");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("users.json file not found");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to save user");
+        }
+        writer.print(usersJson);
+        writer.close();
     }
 }
