@@ -24,7 +24,7 @@ public class UserController {
 
     public void updateUserName(int id, String token, String userName) {
         if (authenticateUser(id, token)) {
-            userService.updateUserName(userName);
+            userService.updateUserName(id, userName);
         }
         throw new IllegalStateException("The user was not authenticated");
     }
@@ -32,7 +32,7 @@ public class UserController {
     public void updateEmail(int id, String token, String email) {
         if (authenticateUser(id, token)) {
             if (validateEmail(email)) {
-                userService.updateEmail(email);
+                userService.updateEmail(id, email);
             } else {
                 throw new IllegalArgumentException("Invalid email inserted");
             }
@@ -42,8 +42,8 @@ public class UserController {
 
     public void updatePassword(int id, String token, String password) {
         if (authenticateUser(id, token)) {
-            if (validatePassword(String password)) {
-                userService.updatePassword(password);
+            if (validatePassword(password)) {
+                userService.updatePassword(id, password);
             } else {
                 throw new IllegalArgumentException("Invalid email inserted");
             }
@@ -74,5 +74,12 @@ public class UserController {
             return true;
         }
         return false;
+    }
+
+    public static void deleteUser(int id, String token){
+        if (authenticateUser(id, token)) {
+            userService.deleteUser(id);
+        }
+        throw new IllegalStateException("The user was not authenticated");
     }
 }
