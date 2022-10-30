@@ -19,7 +19,7 @@ public class AuthenticationService {
         return authenticationService;
     }
 
-    static HashMap<String, String> userTokens = new HashMap<>();
+    public static HashMap<String, String> userTokens = new HashMap<>();
     ;
 
 

@@ -35,8 +35,10 @@ public class UserController {
             } else {
                 throw new IllegalArgumentException("Invalid email inserted");
             }
+        }else{
+            throw new IllegalStateException("The user was not authenticated");
         }
-        throw new IllegalStateException("The user was not authenticated");
+
     }
 
     public void updatePassword(String id, String token, String password) {
@@ -44,10 +46,13 @@ public class UserController {
             if (validatePassword(password)) {
                 userService.updatePassword(id, password);
             } else {
-                throw new IllegalArgumentException("Invalid email inserted");
+                throw new IllegalArgumentException("Invalid password inserted");
             }
         }
-        throw new IllegalStateException("The user was not authenticated");
+        else{
+            throw new IllegalStateException("The user was not authenticated");
+        }
+
     }
 
     public static boolean authenticateUser(String id, String token) {
@@ -59,7 +64,7 @@ public class UserController {
         boolean matchFound = m.matches();
         if (matchFound) {
             if (UserRepository.checkIfEmailExists(email)) {
-                return false;
+               throw new IllegalArgumentException("You cant change the email to the same one");
             }
             return true;
         }
@@ -78,7 +83,8 @@ public class UserController {
     public static void deleteUser(String id, String token){
         if (authenticateUser(id, token)) {
             userService.deleteUser(id);
+        }else{
+            throw new IllegalStateException("The user was not authenticated");
         }
-        throw new IllegalStateException("The user was not authenticated");
     }
 }

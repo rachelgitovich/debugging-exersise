@@ -1,5 +1,4 @@
 package AuthenticationProject.UserRepository;
-
 import AuthenticationProject.Controllers.UserController;
 import AuthenticationProject.Services.UserService;
 import AuthenticationProject.User;
@@ -18,8 +17,9 @@ public class UserRepository {
     private static final Gson gson = new Gson();
     private static UserRepository userRepository;
 
-    private UserRepository() {
-    }
+    private UserRepository() {}
+
+  
 
     public static synchronized UserRepository getInstance() {
         if (userRepository == null) {
