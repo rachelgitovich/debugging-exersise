@@ -5,30 +5,39 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class UserRepository {
-    public void createUser(User user){
+    private static String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
+
+    public static void createUser(User user) {
         Gson gson = new Gson();
         JsonReader reader = null;
+        PrintWriter writer = null;
         Type USER_TYPE = new TypeToken<List<User>>() {}.getType();
         try {
-            reader = new JsonReader(new FileReader("users.json"));
+            reader = new JsonReader(new FileReader(path));
         } catch (FileNotFoundException e) {
-            try {
-                reader = new JsonReader(new FileReader("users.json"));
-            } catch (IOException ex) {
-                throw new RuntimeException("repository file not exist, failed to create repository file");
-            }
-            List<User> data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
-            data.add(user);
+            throw new RuntimeException("users.json file not found");
         }
-        gson.fromJson(reader, USER_TYPE);
+        List<User> data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
+        if(data==null){
+            data=new ArrayList<User>();
+        }
+        data.add(user);
+        String usersJson = gson.toJson(data);
+        try {
+            writer = new PrintWriter(path, "UTF-8");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("users.json file not found");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to save user");
+        }
+        writer.print(usersJson);
+        writer.close();
     }
 }
