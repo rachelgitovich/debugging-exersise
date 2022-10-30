@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="createUser method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="adding chackIfEmailExists">
       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1667137647210</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL‎-00006" summary="adding chackIfEmailExists">
+      <created>1667138836180</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1667138836180</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +124,7 @@
     <MESSAGE value="wrapping with package" />
     <MESSAGE value="adding createUser method" />
     <MESSAGE value="createUser method" />
-    <option name="LAST_COMMIT_MESSAGE" value="createUser method" />
+    <MESSAGE value="adding chackIfEmailExists" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding chackIfEmailExists" />
   </component>
 </project>
