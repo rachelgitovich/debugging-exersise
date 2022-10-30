@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="adding chackIfEmailExists">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" afterDir="false" />
+    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="fixing conflicts">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +106,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1667138836180</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎-00007" summary="adding updateEmail">
+      <created>1667141486991</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1667141486991</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +134,22 @@
     <MESSAGE value="adding createUser method" />
     <MESSAGE value="createUser method" />
     <MESSAGE value="adding chackIfEmailExists" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding chackIfEmailExists" />
+    <MESSAGE value="adding updateEmail" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding updateEmail" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/UserRepository.java</url>
+          <line>67</line>
+          <properties class="AuthenticationProject.UserRepository.UserRepository" method="checkIfUserExists">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
