@@ -19,12 +19,12 @@ public class AuthenticationService {
         return authenticationService;
     }
 
-    static HashMap<Integer, String> userTokens = new HashMap<>();
+    static HashMap<String, String> userTokens = new HashMap<>();
     ;
 
 
-    public static boolean authUser(int id, String token) {
-        for (HashMap.Entry<Integer, String> entry : userTokens.entrySet()) {
+    public static boolean authUser(String id, String token) {
+        for (HashMap.Entry<String, String> entry : userTokens.entrySet()) {
             if (entry.getKey().equals(id)) {
                 return entry.getValue().equals(token);
             }
@@ -36,16 +36,16 @@ public class AuthenticationService {
         return getSaltString(18);
     }
 
-    public static HashMap<Integer, String> logIn(String email, String password) {
+    public static HashMap<String, String> logIn(String email, String password) {
         //check if the user is not loged in.
         //check if it's user -> return id
-        int id = UserRepository.checkUser(email, password);
+        String id = UserRepository.checkIfUserExists(email, password);
         if (userTokens.containsKey(id)) {
             throw new IllegalArgumentException("the user is logged in ");
         }
         String token = createToken();
         userTokens.put(id, token);
-        HashMap<Integer, String> res = new HashMap<>();
+        HashMap<String, String> res = new HashMap<>();
 
         res.put(id, token);
 

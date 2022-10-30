@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class UserRepository {
-    private static String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
-    private static Gson gson = new Gson();
+    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
+    private static final Gson gson = new Gson();
 
     private static List<User> fetchUsers() {
         JsonReader reader = null;
@@ -52,9 +52,9 @@ public class UserRepository {
         return data.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
-    public static boolean checkIfUserExists(String email, String password) {
+    public static String checkIfUserExists(String email, String password) {
         List<User> data = fetchUsers();
-        return data.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+        return data.stream().filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst().get().getId();
     }
 
     public static void updateEmail(String id, String email) {
