@@ -1,14 +1,14 @@
 [
   {
     "name": "Rivka",
-    "id": "0a9759c4-0441-42d7-969d-00f9593d0270",
-    "email": "sddfdff",
+    "id": "db9c4062-937e-45bf-abee-1b33f0408501",
+    "email": "abcdefg",
     "password": "123"
   },
   {
-    "name": "Rivka",
-    "id": "db9c4062-937e-45bf-abee-1b33f0408501",
-    "email": "sddfdff",
-    "password": "123"
+    "name": "Rachel",
+    "id": "0a9759c4-0441-42d7-969d-00f9593d0270",
+    "email": "abcd",
+    "password": "567"
   }
 ]
