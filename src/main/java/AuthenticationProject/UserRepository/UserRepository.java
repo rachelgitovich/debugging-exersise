@@ -103,4 +103,27 @@ public class UserRepository {
         writer.print(usersJson);
         writer.close();
     }
+    public static void updatePassword(String id, String password) {
+        List<User> data = fetchUsers();
+        User user = null;
+        try {
+            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("User not found");
+        }
+        data.remove(user);
+        user.setPassword(password);
+        data.add(user);
+        PrintWriter writer = null;
+        String usersJson = gson.toJson(data);
+        try {
+            writer = new PrintWriter(path, "UTF-8");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("users.json file not found");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to save user");
+        }
+        writer.print(usersJson);
+        writer.close();
+    }
 }
