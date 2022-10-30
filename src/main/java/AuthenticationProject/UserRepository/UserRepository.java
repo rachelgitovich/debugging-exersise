@@ -1,5 +1,5 @@
 package AuthenticationProject.UserRepository;
-
+import AuthenticationProject.Controllers.UserController;
 import AuthenticationProject.Services.UserService;
 import AuthenticationProject.User;
 import com.google.gson.Gson;
@@ -17,13 +17,12 @@ public class UserRepository {
     private static final Gson gson = new Gson();
     private static UserRepository userRepository;
 
-    private UserRepository(
-    ) {
-    }
+    private UserRepository() {}
 
-    public static synchronized UserRepository getInstance()
-    {
-        if (userRepository==null){
+  
+
+    public static synchronized UserRepository getInstance() {
+        if (userRepository == null) {
             userRepository = new UserRepository();
         }
         return userRepository;
@@ -66,9 +65,14 @@ public class UserRepository {
         return data.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
-    public static String checkIfUserExists(String email, String password) {
+    public static boolean checkIfUserExists(String email, String password) {
         List<User> data = fetchUsers();
-        return data.stream().filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst().get().getId();
+        return data.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+    }
+
+    public static String getIdByEmail(String email) {
+        List<User> data = fetchUsers();
+        return data.stream().filter(u -> u.getEmail().equals(email)).findFirst().get().getId();
     }
 
     public static void updateEmail(String id, String email) {
