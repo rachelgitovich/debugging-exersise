@@ -1,5 +1,7 @@
 package AuthenticationProject.UserRepository;
 
+import AuthenticationProject.Controllers.UserController;
+import AuthenticationProject.Services.UserService;
 import AuthenticationProject.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,6 +16,17 @@ import java.util.NoSuchElementException;
 public class UserRepository {
     private static final String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
     private static final Gson gson = new Gson();
+    private static UserRepository userRepository;
+
+    private UserRepository() {
+    }
+
+    public static synchronized UserRepository getInstance() {
+        if (userRepository == null) {
+            userRepository = new UserRepository();
+        }
+        return userRepository;
+    }
 
     private static List<User> fetchUsers() {
         JsonReader reader = null;

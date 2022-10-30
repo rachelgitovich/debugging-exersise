@@ -10,8 +10,7 @@ public class UserController {
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
 
-    private UserController(
-    ) {
+    private UserController() {
         UserService.getInstance();
     }
 
