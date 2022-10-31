@@ -20,10 +20,37 @@ public class AuthenticationService {
     }
 
     public static HashMap<String, String> userTokens = new HashMap<>();
-    ;
 
 
-    public static boolean authUser(String id, String token) {
+    public void createUser(String name, String email, String password) {
+        if (UserRepository.checkIfUserExists(email, password)) {
+            throw new IllegalArgumentException("the user has already registered");
+        }
+        User user = new User(name, email, password);
+        UserRepository.createUser(user);
+    }
+
+    public HashMap<String, String> logIn(String email, String password) {
+
+        String id;
+        if (UserRepository.checkIfUserExists(email, password)) {
+            id = UserRepository.getIdByEmail(email);
+        } else {
+            throw new IllegalArgumentException("the user is not valid");
+        }
+        if (userTokens.containsKey(id)) {
+            throw new IllegalArgumentException("the user is logged in ");
+        }
+
+        String token = createToken();
+        userTokens.put(id, token);
+        HashMap<String, String> res = new HashMap<>();
+        res.put(id, token);
+
+        return res;
+    }
+
+    public boolean authUser(String id, String token) {
         for (HashMap.Entry<String, String> entry : userTokens.entrySet()) {
             if (entry.getKey().equals(id)) {
                 return entry.getValue().equals(token);
@@ -32,49 +59,25 @@ public class AuthenticationService {
         return false;
     }
 
-    public static String createToken() {
-        return getSaltString(18);
-    }
 
-    public static HashMap<String, String> logIn(String email, String password) {
-        //check if the user is not loged in.
-        //check if it's user -> return id
-        String id = "";
-        if (UserRepository.checkIfUserExists(email, password)) {
-            id = UserRepository.getIdByEmail(email);
-        }
-        if (userTokens.containsKey(id)) {
-            throw new IllegalArgumentException("the user is logged in ");
-        }
-        String token = createToken();
-        userTokens.put(id, token);
-        HashMap<String, String> res = new HashMap<>();
-
-        res.put(id, token);
-
-        return res;
-    }
-
-    public static void createUser(String name, String email, String password) {
-        User user = new User(name, email, password);
-        UserRepository.createUser(user);
-        System.out.println("iam here");
-    }
-
-    public static void deleteUserFromMap(String id) {
+    public void deleteUserFromMap(String id) {
         userTokens.remove(id);
     }
 
-    public static String getSaltString(int stringLength) {
+    private static String getSaltString(int stringLength) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         while (salt.length() < stringLength) {
             int index = (int) (ThreadLocalRandom.current().nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }
-        String saltStr = salt.toString();
-        return saltStr;
 
+        return salt.toString();
+
+    }
+
+    public static String createToken() {
+        return getSaltString(18);
     }
 
 }
