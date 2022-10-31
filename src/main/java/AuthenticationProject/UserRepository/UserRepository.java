@@ -44,7 +44,7 @@ public class UserRepository {
         return data;
     }
 
-    public static void createUser(User user) {
+    public void createUser(User user) {
         List<User> data = fetchUsers();
         PrintWriter writer = null;
         data.add(user);
@@ -60,22 +60,22 @@ public class UserRepository {
         writer.close();
     }
 
-    public static boolean checkIfEmailExists(String email) {
+    public boolean checkIfEmailExists(String email) {
         List<User> data = fetchUsers();
         return data.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
-    public static boolean checkIfUserExists(String email, String password) {
+    public boolean checkIfUserExists(String email, String password) {
         List<User> data = fetchUsers();
         return data.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
     }
 
-    public static String getIdByEmail(String email) {
+    public String getIdByEmail(String email) {
         List<User> data = fetchUsers();
         return data.stream().filter(u -> u.getEmail().equals(email)).findFirst().get().getId();
     }
 
-    public static void updateEmail(String id, String email) {
+    public void updateEmail(String id, String email) {
         List<User> data = fetchUsers();
         User user = null;
         try {
@@ -99,7 +99,7 @@ public class UserRepository {
         writer.close();
     }
 
-    public static void updateName(String id, String name) {
+    public void updateName(String id, String name) {
         List<User> data = fetchUsers();
         User user = null;
         try {
@@ -123,7 +123,7 @@ public class UserRepository {
         writer.close();
     }
 
-    public static void updatePassword(String id, String password) {
+    public void updatePassword(String id, String password) {
         List<User> data = fetchUsers();
         User user = null;
         try {
@@ -147,7 +147,7 @@ public class UserRepository {
         writer.close();
     }
 
-    public static void deleteUser(String id) {
+    public void deleteUser(String id) {
         List<User> data = fetchUsers();
         User user = null;
         try {
