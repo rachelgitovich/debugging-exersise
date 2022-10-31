@@ -77,6 +77,9 @@ public class AuthenticationService {
         return salt.toString();
 
     }
+    public boolean checkIfEmailExists(String email) {
+        return userRepository.checkIfEmailExists(email);
+    }
 
     public static String createToken() {
         return getSaltString(18);

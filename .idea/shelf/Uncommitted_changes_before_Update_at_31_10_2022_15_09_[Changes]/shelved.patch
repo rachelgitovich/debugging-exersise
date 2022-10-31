@@ -1,0 +1,112 @@
+Index: src/main/java/AuthenticationProject/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AuthenticationProject;\r\n\r\nimport AuthenticationProject.Controllers.AuthenticationController;\r\nimport AuthenticationProject.Controllers.UserController;\r\nimport AuthenticationProject.Services.AuthenticationService;\r\nimport AuthenticationProject.UserRepository.UserRepository;\r\n\r\n\r\nimport java.util.HashMap;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n//        UserRepository.checkIfUserExists(\"sdfs\",\"sdfsf\");\r\n\r\n//        AuthenticationController.createUser(\"leon\", \"leon@gmail.com\", \"leon123\");\r\n        //HashMap<String, String> res = AuthenticationController.logIn(\"haitham@gmail.com\", \"password\");\r\n//        System.out.println(res.get(\"29982e27-105a-403a-8fd3-d6b8756499a3\"));\r\n        //boolean test = AuthenticationController.authUser(\"29982e27-105a-403a-8fd3-d6b8756499a3\", res.get(\"29982e27-105a-403a-8fd3-d6b8756499a3\"));\r\n        //System.out.println(test);\r\n//\r\n\r\n\r\n        Tests.testUpdateEmail();\r\n        //Tests.testUpdatePassword();\r\n        //Tests.testDeleteUser();\r\n\r\n        //UserRepository.checkIfUserExists(\"sdfs\",\"sdfsf\");\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/Main.java b/src/main/java/AuthenticationProject/Main.java
+--- a/src/main/java/AuthenticationProject/Main.java	(revision d9e36ebbb1fadbc9ef6ac3b5b891cf1574c1ea5f)
++++ b/src/main/java/AuthenticationProject/Main.java	(date 1667198617002)
+@@ -21,7 +21,7 @@
+ //
+ 
+ 
+-        Tests.testUpdateEmail();
++        //Tests.testUpdateEmail();
+         //Tests.testUpdatePassword();
+         //Tests.testDeleteUser();
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"967138cf-31d8-478e-b9c7-ee606e155bfb\" name=\"Changes\" comment=\"fixing conflicts\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2GqrMeaR3WTqjtGlxK0tkzEGvPF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"AuthenticationProject.Main\" />\r\n      <module name=\"AuthenticationProject\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"AuthenticationProject.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"967138cf-31d8-478e-b9c7-ee606e155bfb\" name=\"Changes\" comment=\"\" />\r\n      <created>1667126908910</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667126908910</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Moved package\">\r\n      <created>1667127220300</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667127220300</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00002\" summary=\"pull from master\">\r\n      <created>1667132764336</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667132764336</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00003\" summary=\"wrapping with package\">\r\n      <created>1667132953065</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667132953065</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00004\" summary=\"adding createUser method\">\r\n      <created>1667134783630</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667134783630</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00005\" summary=\"createUser method\">\r\n      <created>1667137647210</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667137647210</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00006\" summary=\"adding chackIfEmailExists\">\r\n      <created>1667138836180</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667138836180</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00007\" summary=\"adding updateEmail\">\r\n      <created>1667141486991</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667141486991</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Moved package\" />\r\n    <MESSAGE value=\"pull from master\" />\r\n    <MESSAGE value=\"wrapping with package\" />\r\n    <MESSAGE value=\"adding createUser method\" />\r\n    <MESSAGE value=\"createUser method\" />\r\n    <MESSAGE value=\"adding chackIfEmailExists\" />\r\n    <MESSAGE value=\"adding updateEmail\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"adding updateEmail\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java</url>\r\n          <line>42</line>\r\n          <option name=\"timeStamp\" value=\"10\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/AuthenticationProject$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1667198343048\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>AuthenticationProject.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d9e36ebbb1fadbc9ef6ac3b5b891cf1574c1ea5f)
++++ b/.idea/workspace.xml	(date 1667221762402)
+@@ -4,20 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="fixing conflicts">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml" afterDir="false" />
++    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="fixing bugs and testing user controll flow">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -50,20 +39,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Downloaded.Files.Path.Enabled": "false",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "last_opened_file_path": "C:/Users/Leon/IdeaProjects/AuthenticationProject",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="AuthenticationProject.Main" />
+@@ -142,7 +132,14 @@
+       <option name="project" value="LOCAL‎" />
+       <updated>1667141486991</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="fixing bugs and testing user controll flow">
++      <created>1667198594529</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1667198594529</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -164,7 +161,8 @@
+     <MESSAGE value="createUser method" />
+     <MESSAGE value="adding chackIfEmailExists" />
+     <MESSAGE value="adding updateEmail" />
+-    <option name="LAST_COMMIT_MESSAGE" value="adding updateEmail" />
++    <MESSAGE value="fixing bugs and testing user controll flow" />
++    <option name="LAST_COMMIT_MESSAGE" value="fixing bugs and testing user controll flow" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

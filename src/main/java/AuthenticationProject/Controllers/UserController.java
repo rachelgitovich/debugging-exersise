@@ -9,8 +9,8 @@ public class UserController {
     private static UserService userService;
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
-
     private static AuthenticationService authenticationService;
+
 
     private UserController() {
         userService = UserService.getInstance();
@@ -66,7 +66,7 @@ public class UserController {
         Matcher m = emailPattern.matcher(email);
         boolean matchFound = m.matches();
         if (matchFound) {
-            if (userRepository.checkIfEmailExists(email)) {
+            if (userService.checkIfEmailExists(email)) {
                throw new IllegalArgumentException("You cant change the email to the same one");
             }
             return true;
