@@ -8,6 +8,11 @@ public class UserService {
     private static AuthenticationService authService;
     private static UserRepository userRepository;
 
+    private UserService() {
+        userRepository = UserRepository.getInstance();
+    }
+
+
     private UserService(){
         UserRepository.getInstance();
     }
