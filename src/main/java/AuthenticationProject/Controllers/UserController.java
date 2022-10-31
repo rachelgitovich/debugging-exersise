@@ -10,8 +10,11 @@ public class UserController {
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
 
+    private static AuthenticationService authenticationService;
+
     private UserController() {
         userService = UserService.getInstance();
+        authenticationService = AuthenticationService.getInstance();
     }
 
     public static synchronized UserController getInstance() {
@@ -56,7 +59,7 @@ public class UserController {
     }
 
     public static boolean authenticateUser(String id, String token) {
-        return AuthenticationService.authUser(id, token);
+        return authenticationService.authUser(id, token);
     }
 
     public static boolean validateEmail(String email) {
@@ -82,6 +85,7 @@ public class UserController {
 
     public static void deleteUser(String id, String token){
         if (authenticateUser(id, token)) {
+            authenticationService.deleteUserFromMap(id);
             userService.deleteUser(id);
         }else{
             throw new IllegalStateException("The user was not authenticated");
