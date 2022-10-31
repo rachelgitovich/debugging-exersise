@@ -39,7 +39,10 @@ public class AuthenticationService {
     public static HashMap<String, String> logIn(String email, String password) {
         //check if the user is not loged in.
         //check if it's user -> return id
-        String id = UserRepository.checkIfUserExists(email, password);
+        String id = "";
+        if (UserRepository.checkIfUserExists(email, password)) {
+            id = UserRepository.getIdByEmail(email);
+        }
         if (userTokens.containsKey(id)) {
             throw new IllegalArgumentException("the user is logged in ");
         }
@@ -54,12 +57,11 @@ public class AuthenticationService {
 
     public static void createUser(String name, String email, String password) {
         User user = new User(name, email, password);
-        UserRepository.createUser(user);//if user is regestered make anything
-
-
+        UserRepository.createUser(user);
+        System.out.println("iam here");
     }
 
-    public static void deleteUserFromMap(int id) {
+    public static void deleteUserFromMap(String id) {
         userTokens.remove(id);
     }
 
