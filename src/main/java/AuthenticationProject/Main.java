@@ -21,11 +21,23 @@ public class Main {
 //
 
 
-        Tests.testUpdateEmail();
+//        Tests.testUpdateEmail();
         //Tests.testUpdatePassword();
         //Tests.testDeleteUser();
 
         //UserRepository.checkIfUserExists("sdfs","sdfsf");
+
+        AuthenticationController authController = AuthenticationController.getInstance();
+//        authController.createUser("khader", "khaderzatari@gmail.com", "khader1234"); works 👌
+        //====
+        HashMap<String, String> user1 = authController.logIn("khaderzatari@gmail.com", "khader1234");
+        HashMap<String, String> user2 = authController.logIn("khaderzatari@gmail.com", "khader1234");
+        System.out.println(user1.entrySet());
+        System.out.println(user2.entrySet());
+        //====
+        String userId = "8a0bc5ec-5ef7-487a-a4e2-198e9e5d9f75";
+        boolean isAuth = authController.authUser(userId, user1.get(userId));
+        System.out.println(isAuth);
 
 
     }
