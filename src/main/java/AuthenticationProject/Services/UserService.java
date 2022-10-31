@@ -5,7 +5,6 @@ import AuthenticationProject.UserRepository.UserRepository;
 public class UserService {
 
     private static UserService userService;
-    private static AuthenticationService authService;
     private static UserRepository userRepository;
 
     private UserService() {
@@ -21,19 +20,19 @@ public class UserService {
     }
 
     public void updateEmail(String id, String email) {
-        UserRepository.updateEmail(id, email);
+        userRepository.updateEmail(id, email);
     }
 
     public void updatePassword(String id, String password) {
-        UserRepository.updatePassword(id, password);
+        userRepository.updatePassword(id, password);
     }
 
     public void updateUserName(String id, String username) {
 
-        UserRepository.updateName(id, username);
+        userRepository.updateName(id, username);
     }
 
     public void deleteUser(String id) {
-        UserRepository.deleteUser(id);
+        userRepository.deleteUser(id);
     }
 }

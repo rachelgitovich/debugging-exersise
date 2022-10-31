@@ -42,7 +42,7 @@ public class Tests {
     public static void testUpdateEmail(){
         UserController userController = UserController.getInstance();
         AuthenticationController authenticationController = AuthenticationController.getInstance();
-        authenticationController.logIn("ab@c.com","567");
+        authenticationController.logIn("newEmail@email1.com","leon123567");
         String id = "0a9759c4-0441-42d7-969d-00f9593d0270";
         String token = AuthenticationService.userTokens.get(id);
 
@@ -69,7 +69,7 @@ public class Tests {
         }
 
         System.out.println("Updated the email successfully");
-        userController.updateEmail(id,token, "newEmail@email1.com");
+        userController.updateEmail(id,token, "11newEmail@email1.com");
     }
 
     public static void testDeleteUser() {
