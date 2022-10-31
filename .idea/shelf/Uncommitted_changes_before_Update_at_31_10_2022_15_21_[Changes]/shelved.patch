@@ -1,0 +1,233 @@
+Index: src/main/java/AuthenticationProject/UserRepository/users.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[{\"name\":\"Rachel\",\"id\":\"0a9759c4-0441-42d7-969d-00f9593d0270\",\"email\":\"newEmail@email1.com\",\"password\":\"567\"}]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/UserRepository/users.json b/src/main/java/AuthenticationProject/UserRepository/users.json
+--- a/src/main/java/AuthenticationProject/UserRepository/users.json	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/src/main/java/AuthenticationProject/UserRepository/users.json	(date 1667222144139)
+@@ -1,1 +1,1 @@
+-[{"name":"Rachel","id":"0a9759c4-0441-42d7-969d-00f9593d0270","email":"newEmail@email1.com","password":"567"}]
+\ No newline at end of file
++[{"name":"Rachel","id":"0a9759c4-0441-42d7-969d-00f9593d0270","email":"11newEmail@email1.com","password":"leon123567"}]
+\ No newline at end of file
+Index: src/main/java/AuthenticationProject/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AuthenticationProject;\r\n\r\nimport AuthenticationProject.Controllers.AuthenticationController;\r\nimport AuthenticationProject.Controllers.UserController;\r\nimport AuthenticationProject.Services.AuthenticationService;\r\nimport AuthenticationProject.UserRepository.UserRepository;\r\n\r\n\r\nimport java.util.HashMap;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n//        UserRepository.checkIfUserExists(\"sdfs\",\"sdfsf\");\r\n\r\n//        AuthenticationController.createUser(\"leon\", \"leon@gmail.com\", \"leon123\");\r\n        //HashMap<String, String> res = AuthenticationController.logIn(\"haitham@gmail.com\", \"password\");\r\n//        System.out.println(res.get(\"29982e27-105a-403a-8fd3-d6b8756499a3\"));\r\n        //boolean test = AuthenticationController.authUser(\"29982e27-105a-403a-8fd3-d6b8756499a3\", res.get(\"29982e27-105a-403a-8fd3-d6b8756499a3\"));\r\n        //System.out.println(test);\r\n//\r\n\r\n\r\n//        Tests.testUpdateEmail();\r\n        //Tests.testUpdatePassword();\r\n        //Tests.testDeleteUser();\r\n\r\n        //UserRepository.checkIfUserExists(\"sdfs\",\"sdfsf\");\r\n\r\n        AuthenticationController authController = AuthenticationController.getInstance();\r\n//        authController.createUser(\"khader\", \"khaderzatari@gmail.com\", \"khader1234\"); works \uD83D\uDC4C\r\n        //====\r\n        HashMap<String, String> user1 = authController.logIn(\"khaderzatari@gmail.com\", \"khader1234\");\r\n        HashMap<String, String> user2 = authController.logIn(\"khaderzatari@gmail.com\", \"khader1234\");\r\n        System.out.println(user1.entrySet());\r\n        System.out.println(user2.entrySet());\r\n        //====\r\n        String userId = \"8a0bc5ec-5ef7-487a-a4e2-198e9e5d9f75\";\r\n        boolean isAuth = authController.authUser(userId, user1.get(userId));\r\n        System.out.println(isAuth);\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/Main.java b/src/main/java/AuthenticationProject/Main.java
+--- a/src/main/java/AuthenticationProject/Main.java	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/src/main/java/AuthenticationProject/Main.java	(date 1667221787299)
+@@ -21,24 +21,12 @@
+ //
+ 
+ 
+-//        Tests.testUpdateEmail();
++        Tests.testUpdateEmail();
+         //Tests.testUpdatePassword();
+         //Tests.testDeleteUser();
+ 
+         //UserRepository.checkIfUserExists("sdfs","sdfsf");
+ 
+-        AuthenticationController authController = AuthenticationController.getInstance();
+-//        authController.createUser("khader", "khaderzatari@gmail.com", "khader1234"); works 👌
+-        //====
+-        HashMap<String, String> user1 = authController.logIn("khaderzatari@gmail.com", "khader1234");
+-        HashMap<String, String> user2 = authController.logIn("khaderzatari@gmail.com", "khader1234");
+-        System.out.println(user1.entrySet());
+-        System.out.println(user2.entrySet());
+-        //====
+-        String userId = "8a0bc5ec-5ef7-487a-a4e2-198e9e5d9f75";
+-        boolean isAuth = authController.authUser(userId, user1.get(userId));
+-        System.out.println(isAuth);
+-
+ 
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"967138cf-31d8-478e-b9c7-ee606e155bfb\" name=\"Changes\" comment=\"fixing conflicts\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Services/UserService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AuthenticationProject/UserRepository/users.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2GqrMeaR3WTqjtGlxK0tkzEGvPF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"AuthenticationProject.Main\" />\r\n      <module name=\"AuthenticationProject\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"AuthenticationProject.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"967138cf-31d8-478e-b9c7-ee606e155bfb\" name=\"Changes\" comment=\"\" />\r\n      <created>1667126908910</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667126908910</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Moved package\">\r\n      <created>1667127220300</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667127220300</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00002\" summary=\"pull from master\">\r\n      <created>1667132764336</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667132764336</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00003\" summary=\"wrapping with package\">\r\n      <created>1667132953065</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667132953065</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00004\" summary=\"adding createUser method\">\r\n      <created>1667134783630</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667134783630</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00005\" summary=\"createUser method\">\r\n      <created>1667137647210</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667137647210</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00006\" summary=\"adding chackIfEmailExists\">\r\n      <created>1667138836180</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667138836180</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00007\" summary=\"adding updateEmail\">\r\n      <created>1667141486991</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1667141486991</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Moved package\" />\r\n    <MESSAGE value=\"pull from master\" />\r\n    <MESSAGE value=\"wrapping with package\" />\r\n    <MESSAGE value=\"adding createUser method\" />\r\n    <MESSAGE value=\"createUser method\" />\r\n    <MESSAGE value=\"adding chackIfEmailExists\" />\r\n    <MESSAGE value=\"adding updateEmail\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"adding updateEmail\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java</url>\r\n          <line>42</line>\r\n          <option name=\"timeStamp\" value=\"10\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/AuthenticationProject$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1667198343048\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>AuthenticationProject.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/.idea/workspace.xml	(date 1667222373258)
+@@ -4,14 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="fixing conflicts">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_14_22__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_16_15__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_10_2022_20_53__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_14_24__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_16_19__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_19_17__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2022_20_54__Changes_.xml" afterDir="false" />
++    <list default="true" id="967138cf-31d8-478e-b9c7-ee606e155bfb" name="Changes" comment="fixing bugs and testing user controll flow">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Controllers/UserController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationProject/Main.java" afterDir="false" />
+@@ -59,6 +52,7 @@
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Leon/IdeaProjects/AuthenticationProject&quot;,
+     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+@@ -142,7 +136,14 @@
+       <option name="project" value="LOCAL‎" />
+       <updated>1667141486991</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="fixing bugs and testing user controll flow">
++      <created>1667198594529</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1667198594529</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -164,18 +165,8 @@
+     <MESSAGE value="createUser method" />
+     <MESSAGE value="adding chackIfEmailExists" />
+     <MESSAGE value="adding updateEmail" />
+-    <option name="LAST_COMMIT_MESSAGE" value="adding updateEmail" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/AuthenticationProject/Tests.java</url>
+-          <line>42</line>
+-          <option name="timeStamp" value="10" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
++    <MESSAGE value="fixing bugs and testing user controll flow" />
++    <option name="LAST_COMMIT_MESSAGE" value="fixing bugs and testing user controll flow" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/AuthenticationProject$Main.ic" NAME="Main Coverage Results" MODIFIED="1667198343048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+Index: src/main/java/AuthenticationProject/Tests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AuthenticationProject;\r\n\r\nimport AuthenticationProject.Controllers.AuthenticationController;\r\nimport AuthenticationProject.Controllers.UserController;\r\nimport AuthenticationProject.Services.AuthenticationService;\r\n\r\npublic class Tests {\r\n\r\n    public static void testUpdatePassword(){\r\n        System.out.println(\"\\n\\n\");\r\n        UserController userController = UserController.getInstance();\r\n        AuthenticationController authenticationController = AuthenticationController.getInstance();\r\n        String id = \"db9c4062-937e-45bf-abee-1b33f0408501\";\r\n        String token = AuthenticationService.userTokens.get(id);\r\n\r\n        try{\r\n            userController.updatePassword(id,token, \"\");\r\n        }catch(IllegalArgumentException e){\r\n            System.out.println(\"Invalid password inserted\");\r\n        }\r\n\r\n        try{\r\n            userController.updatePassword(id,token, \"123\");\r\n        }catch(IllegalArgumentException e){\r\n            System.out.println(\"Cant update to the same password\");\r\n        }\r\n        try{\r\n            userController.updatePassword(id,\"Wrong token\", \"ab@c.com\");\r\n        }catch(IllegalStateException e){\r\n            System.out.println(\"Wrong token Inserted\");\r\n        }\r\n        try{\r\n            userController.updatePassword(\"Wrong Id\",token, \"ab@c.com\");\r\n        }catch(IllegalStateException e){\r\n            System.out.println(\"Wrong Id inserted\");\r\n        }\r\n\r\n        System.out.println(\"Updated the password successfully\");\r\n        userController.updatePassword(id,token, \"leon5678\");\r\n    }\r\n\r\n    public static void testUpdateEmail(){\r\n        UserController userController = UserController.getInstance();\r\n        AuthenticationController authenticationController = AuthenticationController.getInstance();\r\n        authenticationController.logIn(\"ab@c.com\",\"567\");\r\n        String id = \"0a9759c4-0441-42d7-969d-00f9593d0270\";\r\n        String token = AuthenticationService.userTokens.get(id);\r\n\r\n        try{\r\n            userController.updateEmail(id,token, \"\");\r\n        }catch(IllegalArgumentException e){\r\n            System.out.println(\"Invalid email inserted\");\r\n        }\r\n\r\n        try{\r\n            userController.updateEmail(id,token, \"ab@c.com\");\r\n        }catch(IllegalArgumentException e){\r\n            System.out.println(\"Cant update to the same email\");\r\n        }\r\n        try{\r\n            userController.updateEmail(id,\"Wrong token\", \"ab@c.com\");\r\n        }catch(IllegalStateException e){\r\n            System.out.println(\"Wrong token Inserted\");\r\n        }\r\n        try{\r\n            userController.updateEmail(\"Wrong Id\",token, \"ab@c.com\");\r\n        }catch(IllegalStateException e){\r\n            System.out.println(\"Wrong Id inserted\");\r\n        }\r\n\r\n        System.out.println(\"Updated the email successfully\");\r\n        userController.updateEmail(id,token, \"newEmail@email1.com\");\r\n    }\r\n\r\n    public static void testDeleteUser() {\r\n        UserController userController = UserController.getInstance();\r\n        AuthenticationController authenticationController = AuthenticationController.getInstance();\r\n        authenticationController.logIn(\"8newEmail@email1.com\",\"leon5678\");\r\n        String id = \"db9c4062-937e-45bf-abee-1b33f0408501\";\r\n        String token = AuthenticationService.userTokens.get(id);\r\n\r\n        userController.deleteUser(id,token);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/Tests.java b/src/main/java/AuthenticationProject/Tests.java
+--- a/src/main/java/AuthenticationProject/Tests.java	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/src/main/java/AuthenticationProject/Tests.java	(date 1667222125101)
+@@ -42,7 +42,7 @@
+     public static void testUpdateEmail(){
+         UserController userController = UserController.getInstance();
+         AuthenticationController authenticationController = AuthenticationController.getInstance();
+-        authenticationController.logIn("ab@c.com","567");
++        authenticationController.logIn("newEmail@email1.com","leon123567");
+         String id = "0a9759c4-0441-42d7-969d-00f9593d0270";
+         String token = AuthenticationService.userTokens.get(id);
+ 
+@@ -69,7 +69,7 @@
+         }
+ 
+         System.out.println("Updated the email successfully");
+-        userController.updateEmail(id,token, "newEmail@email1.com");
++        userController.updateEmail(id,token, "11newEmail@email1.com");
+     }
+ 
+     public static void testDeleteUser() {
+Index: src/main/java/AuthenticationProject/Services/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AuthenticationProject.Services;\r\n\r\nimport AuthenticationProject.UserRepository.UserRepository;\r\n\r\npublic class UserService {\r\n\r\n    private static UserService userService;\r\n    private static AuthenticationService authService;\r\n    private static UserRepository userRepository;\r\n\r\n    private UserService() {\r\n        userRepository = UserRepository.getInstance();\r\n    }\r\n\r\n\r\n    public static synchronized UserService getInstance() {\r\n        if (userService == null) {\r\n            userService = new UserService();\r\n        }\r\n        return userService;\r\n    }\r\n\r\n    public void updateEmail(String id, String email) {\r\n        UserRepository.updateEmail(id, email);\r\n    }\r\n\r\n    public void updatePassword(String id, String password) {\r\n        UserRepository.updatePassword(id, password);\r\n    }\r\n\r\n    public void updateUserName(String id, String username) {\r\n\r\n        UserRepository.updateName(id, username);\r\n    }\r\n\r\n    public void deleteUser(String id) {\r\n        UserRepository.deleteUser(id);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/Services/UserService.java b/src/main/java/AuthenticationProject/Services/UserService.java
+--- a/src/main/java/AuthenticationProject/Services/UserService.java	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/src/main/java/AuthenticationProject/Services/UserService.java	(date 1667222424823)
+@@ -5,7 +5,6 @@
+ public class UserService {
+ 
+     private static UserService userService;
+-    private static AuthenticationService authService;
+     private static UserRepository userRepository;
+ 
+     private UserService() {
+@@ -21,19 +20,19 @@
+     }
+ 
+     public void updateEmail(String id, String email) {
+-        UserRepository.updateEmail(id, email);
++        userRepository.updateEmail(id, email);
+     }
+ 
+     public void updatePassword(String id, String password) {
+-        UserRepository.updatePassword(id, password);
++        userRepository.updatePassword(id, password);
+     }
+ 
+     public void updateUserName(String id, String username) {
+ 
+-        UserRepository.updateName(id, username);
++        userRepository.updateName(id, username);
+     }
+ 
+     public void deleteUser(String id) {
+-        UserRepository.deleteUser(id);
++        userRepository.deleteUser(id);
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/AuthenticationProject/Controllers/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AuthenticationProject.Controllers;\r\n\r\nimport AuthenticationProject.Services.*;\r\nimport AuthenticationProject.UserRepository.*;\r\nimport java.util.regex.*;\r\n\r\npublic class UserController {\r\n    private static UserController userController;\r\n    private static UserService userService;\r\n    private static final Pattern PASSWORD_PATTERN = Pattern.compile(\"^(?=.*[0-9])(?=.*[a-z]).{8,20}$\");\r\n    private static final Pattern emailPattern = Pattern.compile(\".+@.+\\\\.[a-z]+\");\r\n\r\n    private UserController() {\r\n        userService = UserService.getInstance();\r\n    }\r\n\r\n    public static synchronized UserController getInstance() {\r\n        if (userController == null) {\r\n            userController = new UserController();\r\n        }\r\n        return userController;\r\n    }\r\n\r\n    public void updateUserName(String id, String token, String userName) {\r\n        if (authenticateUser(id, token)) {\r\n            userService.updateUserName(id, userName);\r\n        }\r\n        throw new IllegalStateException(\"The user was not authenticated\");\r\n    }\r\n\r\n    public void updateEmail(String id, String token, String email) {\r\n        if (authenticateUser(id, token)) {\r\n            if (validateEmail(email)) {\r\n                userService.updateEmail(id, email);\r\n            } else {\r\n                throw new IllegalArgumentException(\"Invalid email inserted\");\r\n            }\r\n        }else{\r\n            throw new IllegalStateException(\"The user was not authenticated\");\r\n        }\r\n\r\n    }\r\n\r\n    public void updatePassword(String id, String token, String password) {\r\n        if (authenticateUser(id, token)) {\r\n            if (validatePassword(password)) {\r\n                userService.updatePassword(id, password);\r\n            } else {\r\n                throw new IllegalArgumentException(\"Invalid password inserted\");\r\n            }\r\n        }\r\n        else{\r\n            throw new IllegalStateException(\"The user was not authenticated\");\r\n        }\r\n\r\n    }\r\n\r\n    public static boolean authenticateUser(String id, String token) {\r\n        return AuthenticationService.authUser(id, token);\r\n    }\r\n\r\n    public static boolean validateEmail(String email) {\r\n        Matcher m = emailPattern.matcher(email);\r\n        boolean matchFound = m.matches();\r\n        if (matchFound) {\r\n            if (UserRepository.checkIfEmailExists(email)) {\r\n               throw new IllegalArgumentException(\"You cant change the email to the same one\");\r\n            }\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public static boolean validatePassword(String password) {\r\n        Matcher m = PASSWORD_PATTERN.matcher(password);\r\n        boolean matchFound = m.matches();\r\n        if (matchFound) {\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public static void deleteUser(String id, String token){\r\n        if (authenticateUser(id, token)) {\r\n            userService.deleteUser(id);\r\n        }else{\r\n            throw new IllegalStateException(\"The user was not authenticated\");\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AuthenticationProject/Controllers/UserController.java b/src/main/java/AuthenticationProject/Controllers/UserController.java
+--- a/src/main/java/AuthenticationProject/Controllers/UserController.java	(revision efac2920493edf045b6269712e333480e4082c63)
++++ b/src/main/java/AuthenticationProject/Controllers/UserController.java	(date 1667222310801)
+@@ -10,8 +10,11 @@
+     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
+     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
+ 
++    private static AuthenticationService authenticationService;
++
+     private UserController() {
+         userService = UserService.getInstance();
++        authenticationService = AuthenticationService.getInstance();
+     }
+ 
+     public static synchronized UserController getInstance() {
+@@ -56,7 +59,7 @@
+     }
+ 
+     public static boolean authenticateUser(String id, String token) {
+-        return AuthenticationService.authUser(id, token);
++        return authenticationService.authUser(id, token);
+     }
+ 
+     public static boolean validateEmail(String email) {
+@@ -82,6 +85,7 @@
+ 
+     public static void deleteUser(String id, String token){
+         if (authenticateUser(id, token)) {
++            authenticationService.deleteUserFromMap(id);
+             userService.deleteUser(id);
+         }else{
+             throw new IllegalStateException("The user was not authenticated");
