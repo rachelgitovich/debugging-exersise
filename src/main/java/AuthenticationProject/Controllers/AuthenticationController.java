@@ -10,11 +10,13 @@ import java.util.regex.Pattern;
 public class AuthenticationController {
     private static AuthenticationController authenticationController;
     private static AuthenticationService authenticationService;
+    private static UserRepository userRepository;
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[0-9])(?=.*[a-z]).{8,20}$");
     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
 
     private AuthenticationController() {
         authenticationService = AuthenticationService.getInstance();
+        userRepository=UserRepository.getInstance();
     }
 
     public static synchronized AuthenticationController getInstance() {
@@ -33,7 +35,7 @@ public class AuthenticationController {
         boolean passwordMatchFound = matchPassword.matches();
 
         if (emailMatchFound && passwordMatchFound) {
-            if (UserRepository.checkIfUserExists(email, password)) {
+            if (userRepository.checkIfUserExists(email, password)) {
                 return authenticationService.logIn(email, password);
             }
             throw new IllegalArgumentException("You cant change the email to the same one");

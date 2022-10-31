@@ -8,8 +8,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AuthenticationService {
     private static AuthenticationService authenticationService;
+    private static UserRepository userRepository;
 
     private AuthenticationService() {
+        userRepository=UserRepository.getInstance();
     }
 
     public static synchronized AuthenticationService getInstance() {
@@ -23,18 +25,18 @@ public class AuthenticationService {
 
 
     public void createUser(String name, String email, String password) {
-        if (UserRepository.checkIfUserExists(email, password)) {
+        if (userRepository.checkIfUserExists(email, password)) {
             throw new IllegalArgumentException("the user has already registered");
         }
         User user = new User(name, email, password);
-        UserRepository.createUser(user);
+        userRepository.createUser(user);
     }
 
     public HashMap<String, String> logIn(String email, String password) {
 
         String id;
-        if (UserRepository.checkIfUserExists(email, password)) {
-            id = UserRepository.getIdByEmail(email);
+        if (userRepository.checkIfUserExists(email, password)) {
+            id = userRepository.getIdByEmail(email);
         } else {
             throw new IllegalArgumentException("the user is not valid");
         }

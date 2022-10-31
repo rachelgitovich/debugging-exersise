@@ -63,7 +63,7 @@ public class UserController {
         Matcher m = emailPattern.matcher(email);
         boolean matchFound = m.matches();
         if (matchFound) {
-            if (UserRepository.checkIfEmailExists(email)) {
+            if (userRepository.checkIfEmailExists(email)) {
                throw new IllegalArgumentException("You cant change the email to the same one");
             }
             return true;
