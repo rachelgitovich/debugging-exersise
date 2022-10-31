@@ -1,23 +1,23 @@
 package AuthenticationProject.UserRepository;
-import AuthenticationProject.Controllers.UserController;
-import AuthenticationProject.Services.UserService;
+
 import AuthenticationProject.User;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 
 public class UserRepository {
-    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users.json";
+    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users/";
+
     private static final Gson gson = new Gson();
     private static UserRepository userRepository;
 
-    private UserRepository() {}
+    private UserRepository() {
+    }
 
     public static synchronized UserRepository getInstance() {
         if (userRepository == null) {
@@ -26,144 +26,122 @@ public class UserRepository {
         return userRepository;
     }
 
-    private static List<User> fetchUsers() {
+    private static User fetchUser(String filePath) {
         JsonReader reader = null;
-        Type USER_TYPE = new TypeToken<List<User>>() {
-        }.getType();
+        Type USER_TYPE = User.class;
         try {
-            reader = new JsonReader(new FileReader(path));
+            reader = new JsonReader(new FileReader(filePath));
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
+            throw new RuntimeException("user's file not found");
         }
-        List<User> data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
+        User data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
         if (data == null) {
-            data = new ArrayList<User>();
+            throw new RuntimeException("user not found");
         }
         return data;
     }
 
+
     public void createUser(User user) {
-        List<User> data = fetchUsers();
         PrintWriter writer = null;
-        data.add(user);
-        String usersJson = gson.toJson(data);
+        String usersJson = gson.toJson(user);
         try {
-            writer = new PrintWriter(path, "UTF-8");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("failed to save user");
+            writer = new PrintWriter(path + user.getId() + ".json", "UTF-8");
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to create user");
         }
         writer.print(usersJson);
         writer.close();
     }
 
+
     public boolean checkIfEmailExists(String email) {
-        List<User> data = fetchUsers();
-        return data.stream().anyMatch(user -> user.getEmail().equals(email));
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles();
+        for (File file :
+                listOfFiles) {
+            if (fetchUser(file.getPath()).getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean checkIfUserExists(String email, String password) {
-        List<User> data = fetchUsers();
-        return data.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles();
+        for (File file :
+                listOfFiles) {
+            if (fetchUser(file.getPath()).getEmail().equals(email) && fetchUser(file.getPath()).getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getIdByEmail(String email) {
-        List<User> data = fetchUsers();
-        return data.stream().filter(u -> u.getEmail().equals(email)).findFirst().get().getId();
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles();
+        for (File file :
+                listOfFiles) {
+            User user = fetchUser(file.getPath());
+            if (user.getEmail().equals(email)) {
+                return user.getId();
+            }
+        }
+        throw new IllegalArgumentException("user not found");
     }
 
     public void updateEmail(String id, String email) {
-        List<User> data = fetchUsers();
-        User user = null;
-        try {
-            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("User not found");
-        }
-        data.remove(user);
+        User user = fetchUser(path + id + ".json");
         user.setEmail(email);
-        data.add(user);
         PrintWriter writer = null;
-        String usersJson = gson.toJson(data);
+        String usersJson = gson.toJson(user);
         try {
-            writer = new PrintWriter(path, "UTF-8");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("failed to save user");
+            writer = new PrintWriter(path + id + ".json", "UTF-8");
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to update user");
         }
         writer.print(usersJson);
         writer.close();
     }
 
     public void updateName(String id, String name) {
-        List<User> data = fetchUsers();
-        User user = null;
-        try {
-            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("User not found");
-        }
-        data.remove(user);
+        User user = fetchUser(path + id + ".json");
         user.setName(name);
-        data.add(user);
         PrintWriter writer = null;
-        String usersJson = gson.toJson(data);
+        String usersJson = gson.toJson(user);
         try {
-            writer = new PrintWriter(path, "UTF-8");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("failed to save user");
+            writer = new PrintWriter(path + id + ".json", "UTF-8");
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to update user");
         }
         writer.print(usersJson);
         writer.close();
     }
 
     public void updatePassword(String id, String password) {
-        List<User> data = fetchUsers();
-        User user = null;
-        try {
-            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("User not found");
-        }
-        data.remove(user);
+        User user = fetchUser(path + id + ".json");
         user.setPassword(password);
-        data.add(user);
         PrintWriter writer = null;
-        String usersJson = gson.toJson(data);
+        String usersJson = gson.toJson(user);
         try {
-            writer = new PrintWriter(path, "UTF-8");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("failed to save user");
+            writer = new PrintWriter(path + id + ".json", "UTF-8");
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            throw new RuntimeException("failed to update user");
         }
         writer.print(usersJson);
         writer.close();
     }
 
     public void deleteUser(String id) {
-        List<User> data = fetchUsers();
-        User user = null;
         try {
-            user = data.stream().filter(u -> u.getId().equals(id)).findFirst().get();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("User not found");
+            Files.delete(Paths.get(path + id + ".json"));
+        } catch (IOException e) {
+            throw new RuntimeException("failed to delete user");
         }
-        data.remove(user);
-        PrintWriter writer = null;
-        String usersJson = gson.toJson(data);
-        try {
-            writer = new PrintWriter(path, "UTF-8");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("users.json file not found");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("failed to save user");
-        }
-        writer.print(usersJson);
-        writer.close();
+
     }
+
+
 }
