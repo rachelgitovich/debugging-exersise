@@ -11,7 +11,7 @@ public class UserController {
     private static final Pattern emailPattern = Pattern.compile(".+@.+\\.[a-z]+");
 
     private UserController() {
-        UserService.getInstance();
+        userService = UserService.getInstance();
     }
 
     public static synchronized UserController getInstance() {

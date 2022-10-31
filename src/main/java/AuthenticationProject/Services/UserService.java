@@ -13,10 +13,6 @@ public class UserService {
     }
 
 
-    private UserService(){
-        UserRepository.getInstance();
-    }
-
     public static synchronized UserService getInstance() {
         if (userService == null) {
             userService = new UserService();
