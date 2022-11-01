@@ -3,12 +3,11 @@ package AuthenticationProject.UserRepository;
 import AuthenticationProject.User;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+
 
 
 public class UserRepository {
@@ -29,15 +28,17 @@ public class UserRepository {
 
     private User fetchUser(String filePath) {
         JsonReader reader = null;
+        User data = null;
         Type USER_TYPE = User.class;
         try {
             reader = new JsonReader(new FileReader(filePath));
-        } catch (FileNotFoundException e) {
+            data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
+            reader.close();
+            if (data == null) {
+                throw new RuntimeException("user not found");
+            }
+        } catch (IOException e) {
             throw new RuntimeException("user's file not found");
-        }
-        User data = gson.fromJson(reader, USER_TYPE); // contains the whole users list
-        if (data == null) {
-            throw new RuntimeException("user not found");
         }
         return data;
     }
