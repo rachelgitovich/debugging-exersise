@@ -58,11 +58,11 @@ public class UserController {
 
     }
 
-    public static boolean authenticateUser(String id, String token) {
+    public boolean authenticateUser(String id, String token) {
         return authenticationService.authUser(id, token);
     }
 
-    public static boolean validateEmail(String email) {
+    public boolean validateEmail(String email) {
         Matcher m = emailPattern.matcher(email);
         boolean matchFound = m.matches();
         if (matchFound) {
@@ -74,7 +74,7 @@ public class UserController {
         return false;
     }
 
-    public static boolean validatePassword(String password) {
+    public boolean validatePassword(String password) {
         Matcher m = PASSWORD_PATTERN.matcher(password);
         boolean matchFound = m.matches();
         if (matchFound) {
@@ -83,7 +83,7 @@ public class UserController {
         return false;
     }
 
-    public static void deleteUser(String id, String token){
+    public void deleteUser(String id, String token){
         if (authenticateUser(id, token)) {
             authenticationService.deleteUserFromMap(id);
             userService.deleteUser(id);
