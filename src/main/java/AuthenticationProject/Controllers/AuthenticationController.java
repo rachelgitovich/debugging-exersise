@@ -41,7 +41,7 @@ public class AuthenticationController {
         if (authenticationService.checkIfEmailExists(email)) {
             return authenticationService.logIn(email, password);
         }
-        return null;
+        throw new IllegalArgumentException("user is not registered");
 
 
     }
