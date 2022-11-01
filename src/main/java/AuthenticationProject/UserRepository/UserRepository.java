@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class UserRepository {
     //    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users/";
-    private static final String path = "/Users/khaderzatari/Desktop/AuthenticationProject/src/main/java/AuthenticationProject/UserRepository/users/";
+    private static final String path = "../AuthenticationProject/src/main/java/AuthenticationProject/UserRepository/users/";
     private static final Gson gson = new Gson();
     private static UserRepository userRepository;
 
@@ -27,7 +27,7 @@ public class UserRepository {
         return userRepository;
     }
 
-    private static User fetchUser(String filePath) {
+    private User fetchUser(String filePath) {
         JsonReader reader = null;
         Type USER_TYPE = User.class;
         try {

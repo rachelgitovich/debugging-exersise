@@ -4,81 +4,85 @@ import AuthenticationProject.Controllers.AuthenticationController;
 import AuthenticationProject.Controllers.UserController;
 import AuthenticationProject.Services.AuthenticationService;
 
+import java.util.HashMap;
+
 public class Tests {
 
     public static void testUpdatePassword(){
         System.out.println("\n\n");
         UserController userController = UserController.getInstance();
         AuthenticationController authenticationController = AuthenticationController.getInstance();
-        String id = "db9c4062-937e-45bf-abee-1b33f0408501";
-        String token = AuthenticationService.userTokens.get(id);
+        HashMap<String, String> user1 = authenticationController.logIn("leon123@email.com","leon1234");
+        String testId = "19e18c0e-84af-4714-b72b-40e4ec5910b5";
+        String testToken = user1.get(testId);
 
         try{
-            userController.updatePassword(id,token, "");
+            userController.updatePassword(testId,testToken, "");
         }catch(IllegalArgumentException e){
             System.out.println("Invalid password inserted");
         }
 
         try{
-            userController.updatePassword(id,token, "123");
+            userController.updatePassword(testId,testToken, "123");
         }catch(IllegalArgumentException e){
             System.out.println("Cant update to the same password");
         }
         try{
-            userController.updatePassword(id,"Wrong token", "ab@c.com");
+            userController.updatePassword(testId,"Wrong token", "ab@c.com");
         }catch(IllegalStateException e){
             System.out.println("Wrong token Inserted");
         }
         try{
-            userController.updatePassword("Wrong Id",token, "ab@c.com");
+            userController.updatePassword("Wrong Id",testToken, "ab@c.com");
         }catch(IllegalStateException e){
             System.out.println("Wrong Id inserted");
         }
 
         System.out.println("Updated the password successfully");
-        userController.updatePassword(id,token, "leon5678");
+        userController.updatePassword(testId,testToken, "leon5678");
     }
 
     public static void testUpdateEmail(){
         UserController userController = UserController.getInstance();
         AuthenticationController authenticationController = AuthenticationController.getInstance();
-        authenticationController.logIn("newEmail@email1.com","leon123567");
-        String id = "0a9759c4-0441-42d7-969d-00f9593d0270";
-        String token = AuthenticationService.userTokens.get(id);
+        HashMap<String, String> user1 = authenticationController.logIn("leon123@email.com","leon1234");
+        String testId = "19e18c0e-84af-4714-b72b-40e4ec5910b5";
+        String testToken = user1.get(testId);
 
         try{
-            userController.updateEmail(id,token, "");
+            userController.updateEmail(testId,testToken, "");
         }catch(IllegalArgumentException e){
             System.out.println("Invalid email inserted");
         }
 
         try{
-            userController.updateEmail(id,token, "ab@c.com");
+            userController.updateEmail(testId,testToken, "ab@c.com");
         }catch(IllegalArgumentException e){
             System.out.println("Cant update to the same email");
         }
         try{
-            userController.updateEmail(id,"Wrong token", "ab@c.com");
+            userController.updateEmail(testId,"Wrong token", "ab@c.com");
         }catch(IllegalStateException e){
             System.out.println("Wrong token Inserted");
         }
         try{
-            userController.updateEmail("Wrong Id",token, "ab@c.com");
+            userController.updateEmail("Wrong Id",testToken, "ab@c.com");
         }catch(IllegalStateException e){
             System.out.println("Wrong Id inserted");
         }
 
         System.out.println("Updated the email successfully");
-        userController.updateEmail(id,token, "11newEmail@email1.com");
+        userController.updateEmail(testId,testToken, "11newEmail@email1.com");
     }
 
     public static void testDeleteUser() {
         UserController userController = UserController.getInstance();
         AuthenticationController authenticationController = AuthenticationController.getInstance();
-        authenticationController.logIn("8newEmail@email1.com","leon5678");
-        String id = "db9c4062-937e-45bf-abee-1b33f0408501";
-        String token = AuthenticationService.userTokens.get(id);
+        HashMap<String, String> user1 = authenticationController.logIn("leon123@email.com","leon1234");
+        String testId = "19e18c0e-84af-4714-b72b-40e4ec5910b5";
+        String testToken = user1.get(testId);
 
-        userController.deleteUser(id,token);
+        userController.deleteUser(testId,testToken);
+        System.out.println("The user was deleted successfully");
     }
 }
