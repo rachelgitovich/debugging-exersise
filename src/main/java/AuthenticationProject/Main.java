@@ -12,9 +12,9 @@ public class Main {
 
 //        authenticationController.createUser("khader", "khaderzatari@gmail.com", "khader1234");
 //        authenticationController.createUser("khader", "khaderzatariNew@gmail.com", "khader1234");
+        authenticationController.createUser("leon", "leon@gmail.com", "leon1234");
 //        HashMap<String, String> user1 = authenticationController.logIn("khaderzatari@gmail.com", "khader1234");
         HashMap<String, String> user2 = authenticationController.logIn("khaderzatari@gmails.com", "khader1234");
-
 
 
     }
