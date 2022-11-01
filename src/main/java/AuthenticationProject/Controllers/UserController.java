@@ -1,7 +1,6 @@
 package AuthenticationProject.Controllers;
 
 import AuthenticationProject.Services.*;
-import AuthenticationProject.UserRepository.*;
 import java.util.regex.*;
 
 public class UserController {
@@ -38,7 +37,7 @@ public class UserController {
             } else {
                 throw new IllegalArgumentException("Invalid email inserted");
             }
-        }else{
+        } else {
             throw new IllegalStateException("The user was not authenticated");
         }
 
@@ -51,8 +50,7 @@ public class UserController {
             } else {
                 throw new IllegalArgumentException("Invalid password inserted");
             }
-        }
-        else{
+        } else {
             throw new IllegalStateException("The user was not authenticated");
         }
 
@@ -67,7 +65,7 @@ public class UserController {
         boolean matchFound = m.matches();
         if (matchFound) {
             if (userService.checkIfEmailExists(email)) {
-               throw new IllegalArgumentException("You cant change the email to the same one");
+                throw new IllegalArgumentException("You cant change the email to the same one");
             }
             return true;
         }
@@ -83,11 +81,11 @@ public class UserController {
         return false;
     }
 
-    public void deleteUser(String id, String token){
+    public void deleteUser(String id, String token) {
         if (authenticateUser(id, token)) {
             authenticationService.deleteUserFromMap(id);
             userService.deleteUser(id);
-        }else{
+        } else {
             throw new IllegalStateException("The user was not authenticated");
         }
     }
