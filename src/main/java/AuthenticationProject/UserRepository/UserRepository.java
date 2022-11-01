@@ -8,11 +8,12 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 
 public class UserRepository {
-    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users/";
-
+    //    private static final String path = "src/main/java/AuthenticationProject/UserRepository/users/";
+    private static final String path = "/Users/khaderzatari/Desktop/AuthenticationProject/src/main/java/AuthenticationProject/UserRepository/users/";
     private static final Gson gson = new Gson();
     private static UserRepository userRepository;
 
@@ -45,7 +46,9 @@ public class UserRepository {
     public void createUser(User user) {
         PrintWriter writer = null;
         String usersJson = gson.toJson(user);
+        System.out.println(usersJson);
         try {
+            File file = new File(path);
             writer = new PrintWriter(path + user.getId() + ".json", "UTF-8");
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
             throw new RuntimeException("failed to create user");
@@ -58,8 +61,7 @@ public class UserRepository {
     public boolean checkIfEmailExists(String email) {
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
-        for (File file :
-                listOfFiles) {
+        for (File file : listOfFiles) {
             if (fetchUser(file.getPath()).getEmail().equals(email)) {
                 return true;
             }
@@ -70,10 +72,11 @@ public class UserRepository {
     public boolean checkIfUserExists(String email, String password) {
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
-        for (File file :
-                listOfFiles) {
-            if (fetchUser(file.getPath()).getEmail().equals(email) && fetchUser(file.getPath()).getPassword().equals(password)) {
-                return true;
+        if (listOfFiles != null) {
+            for (File file : listOfFiles) {
+                if (fetchUser(file.getPath()).getEmail().equals(email) && fetchUser(file.getPath()).getPassword().equals(password)) {
+                    return true;
+                }
             }
         }
         return false;

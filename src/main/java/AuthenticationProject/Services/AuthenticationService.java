@@ -11,7 +11,7 @@ public class AuthenticationService {
     private static UserRepository userRepository;
 
     private AuthenticationService() {
-        userRepository=UserRepository.getInstance();
+        userRepository = UserRepository.getInstance();
     }
 
     public static synchronized AuthenticationService getInstance() {
@@ -25,7 +25,7 @@ public class AuthenticationService {
 
 
     public void createUser(String name, String email, String password) {
-        if (userRepository.checkIfUserExists(email, password)) {
+        if (userRepository.checkIfEmailExists(email)) {
             throw new IllegalArgumentException("the user has already registered");
         }
         User user = new User(name, email, password);
@@ -77,6 +77,7 @@ public class AuthenticationService {
         return salt.toString();
 
     }
+
     public boolean checkIfEmailExists(String email) {
         return userRepository.checkIfEmailExists(email);
     }

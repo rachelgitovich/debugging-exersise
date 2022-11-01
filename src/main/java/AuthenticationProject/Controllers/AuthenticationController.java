@@ -1,7 +1,7 @@
 package AuthenticationProject.Controllers;
 
 import AuthenticationProject.Services.AuthenticationService;
-import AuthenticationProject.UserRepository.UserRepository;
+
 
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -24,7 +24,7 @@ public class AuthenticationController {
         return authenticationController;
     }
 
-    public  HashMap<String, String> logIn(String email, String password) {
+    public HashMap<String, String> logIn(String email, String password) {
 
         Matcher matchMail = emailPattern.matcher(email);
         Matcher matchPassword = PASSWORD_PATTERN.matcher(password);
@@ -32,39 +32,44 @@ public class AuthenticationController {
         boolean emailMatchFound = matchMail.matches();
         boolean passwordMatchFound = matchPassword.matches();
 
-        if (emailMatchFound && passwordMatchFound) {
-            if (authenticationService.checkIfEmailExists(email)) {
-                return authenticationService.logIn(email, password);
-            }
-            throw new IllegalArgumentException("You cant change the email to the same one");
+        if (!emailMatchFound) {
+            throw new IllegalArgumentException("write email properly example@ex.com");
         }
-        throw new IllegalArgumentException("write email properly example@ex.com");
+        if (!passwordMatchFound) {
+            throw new IllegalArgumentException("password isn't proper password");
+        }
+        if (authenticationService.checkIfEmailExists(email)) {
+            return authenticationService.logIn(email, password);
+        }
+        return null;
+
 
     }
 
-    public  boolean authUser(String id, String token) {
+    public boolean authUser(String id, String token) {
         if (token.length() != 18) {
             throw new IllegalArgumentException("the token is not valid");
         }
         return authenticationService.authUser(id, token);
     }
 
-    public  void createUser(String name, String email, String password) {
+    public void createUser(String name, String email, String password) {
         Matcher matchMail = emailPattern.matcher(email);
         Matcher matchPassword = PASSWORD_PATTERN.matcher(password);
 
         boolean emailMatchFound = matchMail.matches();
         boolean passwordMatchFound = matchPassword.matches();
 
-        if (!(emailMatchFound && passwordMatchFound)) {
-            throw new IllegalArgumentException("wrong email and password");
+        if (!emailMatchFound) {
+            throw new IllegalArgumentException("wrong email");
         }
+        if (!passwordMatchFound) {
+            throw new IllegalArgumentException("wrong password");
+        }
+
+
         authenticationService.createUser(name, email, password);
     }
 
 
 }
-
-///in the repo should be map<Integer, User> users;
-// if we update user, he updates the map in the repo, then we wirte it into file.
-//
