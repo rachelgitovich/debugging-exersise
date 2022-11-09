@@ -10,10 +10,10 @@ public class Main {
         AuthenticationController authenticationController = AuthenticationController.getInstance();
 
 
-        //authenticationController.createUser("Leon Shapiro", "leon@email.com", "leon1234");
-        //Tests.testUpdateEmail();
-        //Tests.testUpdatePassword();
-        //Tests.testDeleteUser();
+        authenticationController.createUser("Yossi Gitovich", "yossi@email.com", "yossi1234");
+//        Tests.testUpdateEmail();
+//        Tests.testUpdatePassword();
+//        Tests.testDeleteUser();
 
     }
 }

@@ -1,0 +1,41 @@
+2022-11-09 13:52:06,708 INFO    AuthenticationProject.Controllers.AuthenticationController - create user
+2022-11-09 13:52:06,714 INFO    AuthenticationProject.Services.AuthenticationService - create user
+2022-11-09 13:52:06,714 INFO    AuthenticationProject.UserRepository.UserRepository - checking if email exist
+2022-11-09 13:52:06,715 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:06,740 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:06,741 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:06,742 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:06,742 WARN    AuthenticationProject.UserRepository.UserRepository - email does not exist
+2022-11-09 13:52:07,119 INFO    AuthenticationProject.UserRepository.UserRepository - creating user
+2022-11-09 13:52:28,500 INFO    AuthenticationProject.Controllers.AuthenticationController - create user
+2022-11-09 13:52:28,505 INFO    AuthenticationProject.Services.AuthenticationService - create user
+2022-11-09 13:52:28,506 INFO    AuthenticationProject.UserRepository.UserRepository - checking if email exist
+2022-11-09 13:52:28,507 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:28,524 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:28,524 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:52:28,526 WARN    AuthenticationProject.UserRepository.UserRepository - email exists
+2022-11-09 13:52:28,526 ERROR   AuthenticationProject.Services.AuthenticationService - the user has already registered
+2022-11-09 13:53:52,882 INFO    AuthenticationProject.Controllers.AuthenticationController - create user
+2022-11-09 13:53:52,886 INFO    AuthenticationProject.Services.AuthenticationService - create user
+2022-11-09 13:53:52,886 INFO    AuthenticationProject.UserRepository.UserRepository - checking if email exist
+2022-11-09 13:53:52,886 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:53:52,904 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:53:52,905 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:53:52,905 WARN    AuthenticationProject.UserRepository.UserRepository - email exists
+2022-11-09 13:53:52,906 ERROR   AuthenticationProject.Services.AuthenticationService - the user has already registered
+2022-11-09 13:54:17,495 INFO    AuthenticationProject.Controllers.AuthenticationController - create user
+2022-11-09 13:54:17,500 INFO    AuthenticationProject.Services.AuthenticationService - create user
+2022-11-09 13:54:17,500 INFO    AuthenticationProject.UserRepository.UserRepository - checking if email exist
+2022-11-09 13:54:17,501 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:54:17,522 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:54:17,523 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:54:17,523 WARN    AuthenticationProject.UserRepository.UserRepository - email exists
+2022-11-09 13:54:17,524 ERROR   AuthenticationProject.Services.AuthenticationService - the user has already registered
+2022-11-09 13:54:47,260 INFO    AuthenticationProject.Controllers.AuthenticationController - create user
+2022-11-09 13:54:49,629 INFO    AuthenticationProject.Services.AuthenticationService - create user
+2022-11-09 13:54:53,962 INFO    AuthenticationProject.UserRepository.UserRepository - checking if email exist
+2022-11-09 13:55:36,531 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:55:36,575 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:55:36,577 INFO    AuthenticationProject.UserRepository.UserRepository - fetching user
+2022-11-09 13:55:36,578 WARN    AuthenticationProject.UserRepository.UserRepository - email exists
+2022-11-09 13:55:36,579 ERROR   AuthenticationProject.Services.AuthenticationService - the user has already registered
